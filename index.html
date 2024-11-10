@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chuyển đổi múi giờ</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+</head>
+<body>
+    <h2>Chuyển đổi múi giờ</h2>
+    <form id="timeZoneForm">
+        <label for="input1">Vị trí ban đầu:</label>
+        <select id="input1" onchange="updateDescription('input1', 'input2')">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+        <input type="text" id="input2" disabled placeholder="Thông tin múi giờ sẽ hiển thị khi bạn chọn">
+
+        <label for="input3">Giờ (hh:mm):</label>
+        <input type="time" id="input3" required>
+
+        <label for="input4">Ngày (dd/mm/yyyy):</label>
+        <input type="date" id="input4" required>
+
+        <label for="input5">Vị trí cần chuyển:</label>
+        <select id="input5" onchange="updateDescription('input5', 'input6')">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+        <input type="text" id="input6" disabled placeholder="Thông tin múi giờ sẽ hiển thị khi bạn chọn">
+
+        <button type="button" onclick="convertTime()">Chuyển đổi</button>
+
+        <label for="input7">Thời gian tại vị trí cần chuyển: (hh:mm a/pm dd/mm/yyyy)</label>
+        <input type="text" id="input7" readonly>
+    </form>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.2.0/luxon.min.js"></script>
+</body>
+</html>
